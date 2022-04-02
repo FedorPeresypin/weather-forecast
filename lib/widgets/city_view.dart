@@ -4,8 +4,7 @@ import 'package:weather_app/utilities/forecast_util.dart';
 
 class CityView extends StatelessWidget {
   final AsyncSnapshot<WeatherForecast> snapshot;
-
-  const CityView({Key? key, required this.snapshot}) : super(key: key);
+  const CityView(this.snapshot);
 
   @override
   Widget build(BuildContext context) {

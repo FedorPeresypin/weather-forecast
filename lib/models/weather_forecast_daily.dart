@@ -1,3 +1,5 @@
+import 'package:weather_app/utilities/constants.dart';
+
 class WeatherForecast {
   City? city;
   String? cod;
@@ -177,6 +179,10 @@ class WeatherList {
     data['snow'] = this.snow;
     return data;
   }
+
+  String getIconUrl() {
+    return Constants.WEATHER_IMAGES_URL + weather![0].icon.toString() + '.png';
+  }
 }
 
 class Temp {
@@ -219,9 +225,9 @@ class FeelsLike {
   FeelsLike({this.day, this.night, this.eve, this.morn});
 
   FeelsLike.fromJson(Map<String, dynamic> json) {
-    day = json['day'];
+    day = json['day'].toDouble();
     night = json['night'].toDouble();
-    eve = json['eve'];
+    eve = json['eve'].toDouble();
     morn = json['morn'].toDouble();
   }
 
