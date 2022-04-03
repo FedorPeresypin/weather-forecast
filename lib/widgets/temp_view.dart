@@ -11,6 +11,7 @@ class TempView extends StatelessWidget {
     var forecastList = snapshot.data?.list;
     var icon = forecastList![0].getIconUrl();
     var temp = forecastList[0].temp!.day!.toStringAsFixed(0);
+    var descr = forecastList[0].weather![0].description;
     return Container(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -27,6 +28,10 @@ class TempView extends StatelessWidget {
               Text(
                 '$temp  °C',
                 style: TextStyle(fontSize: 54, color: Colors.pinkAccent),
+              ),
+              Text(
+                '$descr'.toUpperCase(),
+                style: TextStyle(fontSize: 18, color: Colors.cyan),
               )
             ],
           )
