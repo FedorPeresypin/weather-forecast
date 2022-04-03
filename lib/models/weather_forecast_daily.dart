@@ -45,13 +45,7 @@ class City {
   int? population;
   int? timezone;
 
-  City(
-      {this.id,
-      this.name,
-      this.coord,
-      this.country,
-      this.population,
-      this.timezone});
+  City({this.id, this.name, this.coord, this.country, this.population, this.timezone});
 
   City.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -134,9 +128,7 @@ class WeatherList {
     sunrise = json['sunrise'];
     sunset = json['sunset'];
     temp = json['temp'] != null ? new Temp.fromJson(json['temp']) : null;
-    feelsLike = json['feels_like'] != null
-        ? new FeelsLike.fromJson(json['feels_like'])
-        : null;
+    feelsLike = json['feels_like'] != null ? new FeelsLike.fromJson(json['feels_like']) : null;
     pressure = json['pressure'];
     humidity = json['humidity'];
     if (json['weather'] != null) {
@@ -145,7 +137,7 @@ class WeatherList {
         weather!.add(new Weather.fromJson(v));
       });
     }
-    speed = json['speed'];
+    speed = json['speed'].toDouble();
     deg = json['deg'];
     gust = json['gust'].toDouble();
     clouds = json['clouds'];
